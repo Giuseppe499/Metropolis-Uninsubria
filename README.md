@@ -23,7 +23,7 @@ To use the Fira Sans font, uncomment the proper lines in `UninsubriaTheme.tex`. 
 
 To use the default metropolis math font, remove the `mathserif` option from `\documentclass[10pt, mathserif]{beamer}`.
 
-# Credits
+## Credits
 
 If you use this theme in your project, it would be greatly appreciated if you could credit me in your presentation 🙂.
 
