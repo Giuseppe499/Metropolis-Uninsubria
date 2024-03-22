@@ -2,6 +2,8 @@
 ## Metropolis: Uninsubria theme
 An unofficial beamer theme for the University of Insubria (Università degli Studi dell'Insubria).\
 This is an adaptation of the [metropolis theme](https://github.com/matze/mtheme).
+Have a look at the [demo slides]()\
+![Sample](http://i.imgur.com/Bxu52fz.png)
 
 ## Changes from original theme
 - Use Università degli Studi dell'Insubria colors
