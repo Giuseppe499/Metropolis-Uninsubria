@@ -45,6 +45,7 @@ does not affect the presentation that you create with the theme.
 
 <details>
   <summary>Original Metropolis theme ReadMe. Click to Expand.</summary>
+  
 ## Metropolis
 
 
