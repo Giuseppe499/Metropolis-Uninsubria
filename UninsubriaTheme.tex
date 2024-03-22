@@ -1,0 +1,56 @@
+% Change the font to Fira Sans.
+% Requires XeLaTex and the fonts Fira Sans SemiBold and Fira Sans Book.
+% Remove the comment to enable this feature.
+% \setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}
+
+% Define the colors
+\definecolor{verdeInsubria}{RGB}{0,106,82}
+
+% Change metropolis theme colors
+\setbeamercolor{palette primary}{bg=verdeInsubria}
+\setbeamercolor{normal text}{fg=verdeInsubria!60!black}
+\setbeamercolor{frametitle}{bg=verdeInsubria}
+
+% Add background to theorems, definitions, etc.
+% Comment the following lines to remove the background
+\usecolortheme{orchid}
+\setbeamercolor{block body}{bg=mDarkTeal!10}
+\setbeamercolor{block title}{bg=verdeInsubria,fg=white}
+
+% Increase the width of the titlepage separator and the progress bar
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1.5pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1.5pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
+\makeatother
+
+% Add the university logo and a progress bar to the frame title
+\def \extraFTpadding {0.1cm}
+\makeatletter
+\newsavebox{\mybox}
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \savebox{\mybox}{%
+        \begin{beamercolorbox}[%
+                wd=\paperwidth,%
+                sep=0pt,%
+                leftskip=\metropolis@frametitle@padding,%
+                rightskip=\metropolis@frametitle@padding,%
+            ]{frametitle}%
+            \metropolis@frametitlestrut@start\insertframetitle\metropolis@frametitlestrut@end%
+        \end{beamercolorbox}%
+    }
+    \begin{beamercolorbox}[%
+            wd=\paperwidth,%
+            sep=0pt,%
+            leftskip=\metropolis@frametitle@padding,%
+            rightskip=\metropolis@frametitle@padding,%
+        ]{frametitle}%
+        \metropolis@frametitlestrut@start\insertframetitle\metropolis@frametitlestrut@end%
+        \hfill%
+        \raisebox{-\metropolis@frametitle@padding+\extraFTpadding}{\includegraphics[height=\dimexpr\ht\mybox+\metropolis@frametitle@padding-\extraFTpadding-\extraFTpadding]{SigilloAteneoTestoBiancoIngrandito.pdf}}%
+        \hspace*{-\metropolis@frametitle@padding+\extraFTpadding+\extraFTpadding}
+    \end{beamercolorbox}%
+    \usebeamertemplate*{progress bar in head/foot}
+}
+\makeatother

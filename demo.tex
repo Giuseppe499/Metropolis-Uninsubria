@@ -1,4 +1,5 @@
-\documentclass[10pt]{beamer}
+% Remove mathserif if you want the usual math font used in metropolis theme.
+\documentclass[10pt, mathserif]{beamer}
 
 \usetheme{metropolis}
 \usepackage{appendixnumberbeamer}
@@ -12,12 +13,28 @@
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\title{Metropolis}
-\subtitle{A modern beamer theme}
+% Uninsubria Theme
+\input{UninsubriaTheme}
+\usepackage{graphicx}
+\graphicspath{{Plots/}{Images/}}
+
+\title{Metropolis: Uninsubria Theme}
+\subtitle{A modern beamer theme and an unofficial theme for the University of Insubria}
 \date{\today}
-\author{Matthias Vogelgesang}
+\author[Author names]{%
+    \parbox[t]{7cm}{%
+        Metropolis theme: Matthias Vogelgesang \\
+        Uninsubria adaptation: Giuseppe Scarlato \\
+    }%
+}
 \institute{Center for modern beamer themes}
-% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+% Title page university logo
+% Use \put to place the logo in the desired position
+% Use the width option of \includegraphics to scale the logo
+\titlegraphic{%
+  \begin{picture}(0,0)
+    \put(305,-125){\makebox(0,0)[rt]{\includegraphics[width=2.5cm]{SigilloAteneo.pdf}}}
+  \end{picture}}
 
 \begin{document}
 
@@ -34,7 +51,7 @@
 
   The \themename theme is a Beamer theme with minimal visual noise
   inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
-  Theme} by Benjamin Weiss.
+    Theme} by Benjamin Weiss.
 
   Enable the theme by loading
 
@@ -55,55 +72,55 @@
 \section{Title formats}
 
 \begin{frame}{Metropolis title formats}
-	\themename supports 4 different title formats:
-	\begin{itemize}
-		\item Regular
-		\item \textsc{Small caps}
-		\item \textsc{all small caps}
-		\item ALL CAPS
-	\end{itemize}
-	They can either be set at once for every title type or individually.
+  \themename supports 4 different title formats:
+  \begin{itemize}
+    \item Regular
+    \item \textsc{Small caps}
+    \item \textsc{all small caps}
+    \item ALL CAPS
+  \end{itemize}
+  They can either be set at once for every title type or individually.
 \end{frame}
 
 {
-    \metroset{titleformat frame=smallcaps}
+\metroset{titleformat frame=smallcaps}
 \begin{frame}{Small caps}
-	This frame uses the \texttt{smallcaps} title format.
+  This frame uses the \texttt{smallcaps} title format.
 
-	\begin{alertblock}{Potential Problems}
-		Be aware that not every font supports small caps. If for example you typeset your presentation with pdfTeX and the Computer Modern Sans Serif font, every text in small caps will be typeset with the Computer Modern Serif font instead.
-	\end{alertblock}
+  \begin{alertblock}{Potential Problems}
+    Be aware that not every font supports small caps. If for example you typeset your presentation with pdfTeX and the Computer Modern Sans Serif font, every text in small caps will be typeset with the Computer Modern Serif font instead.
+  \end{alertblock}
 \end{frame}
 }
 
 {
 \metroset{titleformat frame=allsmallcaps}
 \begin{frame}{All small caps}
-	This frame uses the \texttt{allsmallcaps} title format.
+  This frame uses the \texttt{allsmallcaps} title format.
 
-	\begin{alertblock}{Potential problems}
-		As this title format also uses small caps you face the same problems as with the \texttt{smallcaps} title format. Additionally this format can cause some other problems. Please refer to the documentation if you consider using it.
+  \begin{alertblock}{Potential problems}
+    As this title format also uses small caps you face the same problems as with the \texttt{smallcaps} title format. Additionally this format can cause some other problems. Please refer to the documentation if you consider using it.
 
-		As a rule of thumb: just use it for plaintext-only titles.
-	\end{alertblock}
+    As a rule of thumb: just use it for plaintext-only titles.
+  \end{alertblock}
 \end{frame}
 }
 
 {
 \metroset{titleformat frame=allcaps}
 \begin{frame}{All caps}
-	This frame uses the \texttt{allcaps} title format.
+  This frame uses the \texttt{allcaps} title format.
 
-	\begin{alertblock}{Potential Problems}
-		This title format is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
-	\end{alertblock}
+  \begin{alertblock}{Potential Problems}
+    This title format is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
+  \end{alertblock}
 \end{frame}
 }
 
 \section{Elements}
 
 \begin{frame}[fragile]{Typography}
-      \begin{verbatim}The theme provides sensible defaults to
+  \begin{verbatim}The theme provides sensible defaults to
 \emph{emphasize} text, \alert{accent} parts
 or show \textbf{bold} results.\end{verbatim}
 
@@ -131,22 +148,22 @@ or show \textbf{bold} results.\end{verbatim}
 \begin{frame}{Lists}
   \begin{columns}[T,onlytextwidth]
     \column{0.33\textwidth}
-      Items
-      \begin{itemize}
-        \item Milk \item Eggs \item Potatoes
-      \end{itemize}
+    Items
+    \begin{itemize}
+      \item Milk \item Eggs \item Potatoes
+    \end{itemize}
 
     \column{0.33\textwidth}
-      Enumerations
-      \begin{enumerate}
-        \item First, \item Second and \item Last.
-      \end{enumerate}
+    Enumerations
+    \begin{enumerate}
+      \item First, \item Second and \item Last.
+    \end{enumerate}
 
     \column{0.33\textwidth}
-      Descriptions
-      \begin{description}
-        \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
-      \end{description}
+    Descriptions
+    \begin{description}
+      \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
+    \end{description}
   \end{columns}
 \end{frame}
 \begin{frame}{Animation}
@@ -163,23 +180,23 @@ or show \textbf{bold} results.\end{verbatim}
     \begin{tikzpicture}
       \def\couleur{alerted text.fg}
       \path[coordinate] (0,0)  coordinate(A)
-                  ++( 90:5cm) coordinate(B)
-                  ++(0:5cm) coordinate(C)
-                  ++(-90:5cm) coordinate(D);
+      ++( 90:5cm) coordinate(B)
+      ++(0:5cm) coordinate(C)
+      ++(-90:5cm) coordinate(D);
       \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
       \foreach \x in {1,...,40}{%
           \pgfmathsetcounter{density}{\thedensity+20}
           \setcounter{density}{\thedensity}
           \path[coordinate] coordinate(X) at (A){};
           \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
-                              -- (C) coordinate[pos=.10](B)
-                              -- (D) coordinate[pos=.10](C)
-                              -- (X) coordinate[pos=.10](D);
+          -- (C) coordinate[pos=.10](B)
+          -- (D) coordinate[pos=.10](C)
+          -- (X) coordinate[pos=.10](D);
           \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
-      }
+        }
     \end{tikzpicture}
     \caption{Rotated square from
-    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
+      \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
   \end{figure}
 \end{frame}
 \begin{frame}{Tables}
@@ -187,12 +204,12 @@ or show \textbf{bold} results.\end{verbatim}
     \caption{Largest cities in the world (source: Wikipedia)}
     \begin{tabular}{@{} lr @{}}
       \toprule
-      City & Population\\
+      City        & Population \\
       \midrule
-      Mexico City & 20,116,842\\
-      Shanghai & 19,210,000\\
-      Peking & 15,796,450\\
-      Istanbul & 14,160,467\\
+      Mexico City & 20,116,842 \\
+      Shanghai    & 19,210,000 \\
+      Peking      & 15,796,450 \\
+      Istanbul    & 14,160,467 \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -203,37 +220,38 @@ or show \textbf{bold} results.\end{verbatim}
 
   \begin{columns}[T,onlytextwidth]
     \column{0.5\textwidth}
-      \begin{block}{Default}
-        Block content.
-      \end{block}
+    \begin{block}{Default}
+      Block content.
+    \end{block}
 
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
+    \begin{alertblock}{Alert}
+      Block content.
+    \end{alertblock}
 
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
+    \begin{exampleblock}{Example}
+      Block content.
+    \end{exampleblock}
 
     \column{0.5\textwidth}
 
-      \metroset{block=fill}
+    \metroset{block=fill}
 
-      \begin{block}{Default}
-        Block content.
-      \end{block}
+    \begin{block}{Default}
+      Block content.
+    \end{block}
 
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
+    \begin{alertblock}{Alert}
+      Block content.
+    \end{alertblock}
 
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
+    \begin{exampleblock}{Example}
+      Block content.
+    \end{exampleblock}
 
   \end{columns}
 \end{frame}
 \begin{frame}{Math}
+  Usual \LaTeX\ serif math font. Remove \texttt{mathserif} option in the preamble to use the default math font of the metropolis theme.
   \begin{equation*}
     e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
   \end{equation*}
@@ -242,10 +260,10 @@ or show \textbf{bold} results.\end{verbatim}
   \begin{figure}
     \begin{tikzpicture}
       \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
+          mlineplot,
+          width=0.9\textwidth,
+          height=6cm,
+        ]
 
         \addplot {sin(deg(x))};
         \addplot+[samples=100] {sin(deg(2*x))};
@@ -258,18 +276,18 @@ or show \textbf{bold} results.\end{verbatim}
   \begin{figure}
     \begin{tikzpicture}
       \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
+          mbarplot,
+          xlabel={Foo},
+          ylabel={Bar},
+          width=0.9\textwidth,
+          height=6cm,
+        ]
 
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
+        \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
+        \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
+        \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
 
-      \legend{lorem, ipsum, dolor}
+        \legend{lorem, ipsum, dolor}
 
       \end{axis}
     \end{tikzpicture}
@@ -284,8 +302,8 @@ or show \textbf{bold} results.\end{verbatim}
 {%
 \setbeamertemplate{frame footer}{My custom footer}
 \begin{frame}[fragile]{Frame footer}
-    \themename defines a custom beamer template to add a text to the footer. It can be set via
-    \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
+  \themename defines a custom beamer template to add a text to the footer. It can be set via
+  \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
 \end{frame}
 }
 
@@ -303,7 +321,7 @@ or show \textbf{bold} results.\end{verbatim}
 
   The theme \emph{itself} is licensed under a
   \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
+    Attribution-ShareAlike 4.0 International License}.
 
   \begin{center}\ccbysa\end{center}
 
